@@ -46,8 +46,8 @@ namespace TZ_Ccharp_T_SQL.Controller
             }
             catch (XPathException ex)
             {
-                MessageBox.Show(ex.Message);
-                throw;
+                throw new Exception("Строка поиска пуста или некорректна!");
+                
             }
         }
 
