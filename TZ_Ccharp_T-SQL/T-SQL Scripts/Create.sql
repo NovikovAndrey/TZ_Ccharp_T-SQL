@@ -11,6 +11,17 @@ CREATE UNIQUE INDEX ClientName_ClientAddress
 ON Clients (ClientName, ClientAddress);
 go
 
+CREATE UNIQUE INDEX ClientName
+ON Clients (ClientName);
+go
+
+CREATE FULLTEXT CATALOG ftCatalog AS DEFAULT;  
+GO  
+CREATE FULLTEXT INDEX ON [dbo].[Clients](ClientName)   
+   KEY INDEX ClientName   
+   WITH STOPLIST = SYSTEM;  
+GO  
+
 CREATE TABLE Currencies
 (
 	Id TINYINT IDENTITY(1,1) PRIMARY KEY,
