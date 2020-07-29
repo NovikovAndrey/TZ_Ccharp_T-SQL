@@ -45,10 +45,12 @@ namespace TZ_Ccharp_T_SQL.View
                 var ListResults = homeController.SearchRequest(FilePath, XPathTextBox.Text);
                 if(ListResults.Count == 0)
                 {
+                    ResultsTextBox.Visibility = Visibility.Collapsed;
                     throw new Exception("По заданному выражению ничего не найдено!");
                 }
                 foreach (string vs in ListResults)
                 {
+                    ResultsTextBox.Visibility = Visibility.Visible;
                     ResultsTextBox.Text += vs;
                 }
             }

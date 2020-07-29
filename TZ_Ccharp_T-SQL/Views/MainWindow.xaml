@@ -17,6 +17,6 @@
             <TextBox x:Name="XPathTextBox" MinWidth="400" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
             <Button x:Name="SearchButton" Content="Поиск" Click="SearchButton_Click" MinWidth="80"/>
         </StackPanel>
-        <TextBox x:Name="ResultsTextBox" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBox x:Name="ResultsTextBox" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed"/>
     </StackPanel>
 </Window>
