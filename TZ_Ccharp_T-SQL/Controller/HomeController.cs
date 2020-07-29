@@ -6,7 +6,9 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Xml;
+using System.Xml.XPath;
 
 namespace TZ_Ccharp_T_SQL.Controller
 {
@@ -28,17 +30,25 @@ namespace TZ_Ccharp_T_SQL.Controller
 
         public List<string> SearchRequest(string filePath, string text)
         {
-            XmlDocument xDoc = new XmlDocument();
-            xDoc.Load(filePath);
-            XmlElement xRoot = xDoc.DocumentElement;
+            try
+            { 
+                XmlDocument xDoc = new XmlDocument();
+                xDoc.Load(filePath);
+                XmlElement xRoot = xDoc.DocumentElement;
 
-            XmlNodeList childnodes = xRoot.SelectNodes(text);
-            foreach (XmlNode childnode in childnodes)
-            {
-                GetVs.Add(GetLevels(childnode));
-                StrTemp = "";
+                XmlNodeList childnodes = xRoot.SelectNodes(text);
+                foreach (XmlNode childnode in childnodes)
+                {
+                    GetVs.Add(GetLevels(childnode));
+                    StrTemp = "";
+                }
+                return GetVs;
             }
-            return GetVs;
+            catch (XPathException ex)
+            {
+                MessageBox.Show(ex.Message);
+                throw;
+            }
         }
 
         private string GetLevels(XmlNode childnode)

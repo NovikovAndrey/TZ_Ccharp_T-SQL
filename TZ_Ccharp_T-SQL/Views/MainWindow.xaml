@@ -5,14 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TZ_Ccharp_T_SQL.View"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <DockPanel >
-        <Label Content="Укажите путь к XML файлу" DockPanel.Dock="Top"/>
-        <TextBox x:Name="FilePathTextBox" DockPanel.Dock="Top" Text="dsfsdfsdfds" IsReadOnly="True"/>
-        <Button x:Name="FilePathButton" Content="Поиск" DockPanel.Dock="Top" Click="Button_Click"/>
-        <Label Content="Введите критерий поиска" DockPanel.Dock="Top"/>
-        <TextBox x:Name="XPathTextBox" DockPanel.Dock="Top"/>
-        <Button x:Name="SearchButton" Content="Поиск" DockPanel.Dock="Top" Click="SearchButton_Click"/>
-        <TextBox x:Name="ResultsTextBox"/>
-    </DockPanel>
+        Title="MainWindow" SizeToContent="WidthAndHeight">
+    <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+        <StackPanel Orientation="Horizontal" MinHeight="30" >
+            <Label Content="Укажите путь к XML файлу" HorizontalAlignment="Left" VerticalContentAlignment="Center" MinWidth="160"/>
+            <TextBox x:Name="FilePathTextBox" IsReadOnly="True" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" MinWidth="400"/>
+            <Button x:Name="FilePathButton" Content="Выбор файла" Click="Button_Click" HorizontalAlignment="Right" MinWidth="80"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" MinHeight="30">
+            <Label Content="Введите критерий поиска" MinWidth="160" VerticalContentAlignment="Center"/>
+            <TextBox x:Name="XPathTextBox" MinWidth="400" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Button x:Name="SearchButton" Content="Поиск" Click="SearchButton_Click" MinWidth="80"/>
+        </StackPanel>
+        <TextBox x:Name="ResultsTextBox" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    </StackPanel>
 </Window>

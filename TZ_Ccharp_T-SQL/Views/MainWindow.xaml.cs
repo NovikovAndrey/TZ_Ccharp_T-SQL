@@ -38,12 +38,23 @@ namespace TZ_Ccharp_T_SQL.View
 
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
-            ResultsTextBox.Text = "";
-            var homeController = new HomeController();
-            var ListResults = homeController.SearchRequest(FilePath, XPathTextBox.Text);
-            foreach (string vs in ListResults)
+            try
             {
-                ResultsTextBox.Text += vs;
+                ResultsTextBox.Text = "";
+                var homeController = new HomeController();
+                var ListResults = homeController.SearchRequest(FilePath, XPathTextBox.Text);
+                if(ListResults.Count == 0)
+                {
+                    throw new Exception("По заданному выражению ничего не найдено!");
+                }
+                foreach (string vs in ListResults)
+                {
+                    ResultsTextBox.Text += vs;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }
